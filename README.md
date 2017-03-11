@@ -8,6 +8,9 @@ This includes the two searching techniques:
 
 2. Binary Search with complexity O(logn)
 
+Functionality: Insert, Search and Delete
+
+
 Folder 2: Tree Traversal
 
 This includes the two tree traversing techniques:
