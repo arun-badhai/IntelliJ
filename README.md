@@ -18,3 +18,12 @@ This includes the two tree traversing techniques:
 1. Depth First Search 
 
 2. Breadth First Search
+
+
+Folder 3 : Heaps
+
+This includes two types of heaps:
+
+1. Min Heaps - Value of each node is less than or equal to the value of the node's children
+
+2. Max Heaps - Value of each node is greater than or equal to the value of the node's children
