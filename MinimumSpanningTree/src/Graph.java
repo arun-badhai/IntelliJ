@@ -10,7 +10,7 @@ public class Graph {
     static int v;
     static int e;
     static List<Integer>  vertex = new ArrayList<Integer>();
-    static List<Edge> edge = new ArrayList<Edge>();
+    static HashMap<Integer, Integer> edge = new HashMap<>();
     static HashMap<Integer, HashMap> mainMap = new HashMap<>();
     static HashMap<Integer, Integer> innerMap = new HashMap<>();
 
@@ -46,10 +46,9 @@ public class Graph {
             int start = sc.nextInt();
             int end = sc.nextInt();
             int weight = sc.nextInt();
-            Edge ed = new Edge(start, end);
-            if(!edge.contains(ed)){
+            if(!edge.containsKey(start) && !edge.containsValue(end)){
                 if(vertex.contains(start) && vertex.contains(end)){
-                    edge.add(ed);
+                    edge.put(start, end);
                     graph.addEdge(start, end, weight);
                 }
                 else{
@@ -62,5 +61,6 @@ public class Graph {
                 i--;
             }
         }
+        System.out.println("Graph created");
     }
 }
