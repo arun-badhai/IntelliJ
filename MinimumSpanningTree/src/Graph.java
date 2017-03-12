@@ -18,20 +18,9 @@ public class Graph {
         vertex.add(key);
     }
 
-    public static void addEdge(int start, int end, int weight, int i){
-        Edge ed = new Edge(start, end, weight);
-        if(!edge.contains(ed)){
-            if(vertex.contains(start) && vertex.contains(end)){
-                innerMap.put(end, weight);
-                mainMap.put(start, innerMap);
-            }
-            else{
-                System.out.println("One of the vertices not present in the graph");
-            }
-        }
-        else{
-            System.out.println("Edge already present in the graph");
-        }
+    public static void addEdge(int start, int end, int weight){
+        innerMap.put(end, weight);
+        mainMap.put(start, innerMap);
     }
     public static void main (String[] args) throws java.lang.Exception
     {
@@ -54,7 +43,24 @@ public class Graph {
         e = sc.nextInt();
         System.out.println("Enter all the edges with their weights");
         for(int i=0;i<e;i++){
-            graph.addEdge(sc.nextInt(), sc.nextInt(), sc.nextInt(),i);
+            int start = sc.nextInt();
+            int end = sc.nextInt();
+            int weight = sc.nextInt();
+            Edge ed = new Edge(start, end);
+            if(!edge.contains(ed)){
+                if(vertex.contains(start) && vertex.contains(end)){
+                    edge.add(ed);
+                    graph.addEdge(start, end, weight);
+                }
+                else{
+                    System.out.println("One of the vertices not present in the graph");
+                    i--;
+                }
+            }
+            else{
+                System.out.println("Edge already present in the graph");
+                i--;
+            }
         }
     }
 }
