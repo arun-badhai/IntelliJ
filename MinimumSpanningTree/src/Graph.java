@@ -8,19 +8,19 @@ import java.util.Scanner;
  */
 public class Graph {
     static int v;
-    static int e;
     static List<Integer>  vertex = new ArrayList<Integer>();
-    static HashMap<Integer, Integer> edge = new HashMap<>();
-    static HashMap<Integer, HashMap> mainMap = new HashMap<>();
-    static HashMap<Integer, Integer> innerMap = new HashMap<>();
+    static List<HashMap> mainList = new ArrayList<>();
+    static List<HashMap> edges = new ArrayList<>();
+    static HashMap<Integer, Integer> edge;
+    static HashMap<Integer, List> mainMap = new HashMap<>();
 
     public static void addVertex(int key){
         vertex.add(key);
     }
 
-    public static void addEdge(int start, int end, int weight){
-        innerMap.put(end, weight);
-        mainMap.put(start, innerMap);
+    public static void addEdgesToGraph(int start, List<HashMap> list){
+        mainMap.put(start, list);
+        mainList.add(mainMap);
     }
     public static void main (String[] args) throws java.lang.Exception
     {
@@ -39,27 +39,40 @@ public class Graph {
                 graph.addVertex(key);
             }
         }
-        System.out.println("Enter number of edges");
-        e = sc.nextInt();
-        System.out.println("Enter all the edges with their weights");
-        for(int i=0;i<e;i++){
-            int start = sc.nextInt();
-            int end = sc.nextInt();
-            int weight = sc.nextInt();
-            if(!edge.containsKey(start) && !edge.containsValue(end)){
-                if(vertex.contains(start) && vertex.contains(end)){
-                    edge.put(start, end);
-                    graph.addEdge(start, end, weight);
+        for(int j=0;j<vertex.size();j++){
+            System.out.println("Enter the number of out-going edges from "+vertex.get(j));
+            int e = sc.nextInt();
+            System.out.println("Enter all the ending vertices with edge weights");
+            List<HashMap> list = new ArrayList<>();
+            HashMap<Integer, Integer> inner = new HashMap<>();
+            for(int i=0;i<e;i++){
+                int end = sc.nextInt();
+                int weight = sc.nextInt();
+                if(vertex.get(j) != end){
+                    if(vertex.contains(end)){
+                        edge = new HashMap<>();
+                        edge.put(vertex.get(j), end);
+                        if(!edges.contains(edge)){
+                            edges.add(edge);
+                            inner.put(end, weight);
+                            list.add(inner);
+                        }
+                        else{
+                            System.out.println("Edge already exists in the graph");
+                            i--;
+                        }
+                    }
+                    else{
+                        System.out.println("End vertex not present in the graph");
+                        i--;
+                    }
                 }
                 else{
-                    System.out.println("One of the vertices not present in the graph");
+                    System.out.println("Start and end vertex is the same");
                     i--;
                 }
             }
-            else{
-                System.out.println("Edge already present in the graph");
-                i--;
-            }
+            addEdgesToGraph(vertex.get(j), list);
         }
         System.out.println("Graph created");
     }
