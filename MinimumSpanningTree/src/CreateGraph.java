@@ -6,16 +6,8 @@ import java.util.*;
 public class CreateGraph {
     static List<String> read = ReadInput.getLines();
     static HashMap sortedMap;
-    static List<Integer> vertex = new ArrayList<>(); // Stores all the vertices
     static List<List<Integer>> edges = new ArrayList<>(); // Store all the edges as a list
     static HashMap<List,Integer> edgesWithWeights = new HashMap<>(); // Stores edges with weights
-
-    // Adds vertices to the list
-    public static void addVertex(int val){
-        if(!vertex.contains(val)){
-            vertex.add(val);
-        }
-    }
 
     // Adds edges to the lists
     public static void addEdge(int start, int end, int weight){
@@ -34,7 +26,6 @@ public class CreateGraph {
     public static void trim(String line){
         String value = line.replaceAll("[^0-9]","");
         int start = Character.getNumericValue(line.charAt(0));
-        addVertex(start);
         for(int i=1;i<value.length();i=i+2){
             int end = Character.getNumericValue(value.charAt(i));
             int weight = Character.getNumericValue(value.charAt(i+1));
@@ -42,36 +33,17 @@ public class CreateGraph {
         }
     }
 
-    public static HashMap sort(HashMap edgesWithWeights) {
-        List sortedList = new ArrayList(edgesWithWeights.entrySet());
-        Collections.sort(sortedList, new Comparator() {
-            public int compare(Object o1, Object o2) {
-                return ((Comparable) ((Map.Entry) (o1)).getValue())
-                        .compareTo(((Map.Entry) (o2)).getValue());
-            }
-        });
-        HashMap sortedMap = new LinkedHashMap();
-        Iterator iterator = sortedList.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry mapEntry = (Map.Entry) iterator.next();
-            sortedMap.put(mapEntry.getKey(), mapEntry.getValue());
+    // Sorting the edges by weights
+    public static HashMap sortMap(){
+        for(int i=0;i<read.size();i++){
+            trim(read.get(i));
         }
+        System.out.println("Original graph has been created!!");
+        sortedMap= new LinkedHashMap();
+        sortedMap = SortedMap.sort(edgesWithWeights);
         return sortedMap;
     }
 
     public static void main (String[] args) throws java.lang.Exception {
-
-        for(int i=0;i<read.size();i++){
-            trim(read.get(i));
-        }
-        System.out.println("Graph has been created!!");
-        sortedMap= new LinkedHashMap();
-        sortedMap = sort(edgesWithWeights);
-        Set set = sortedMap.entrySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry mapVal = (Map.Entry)iterator.next();
-            System.out.println("key is: "+ mapVal.getKey() + " & Value is: " +mapVal.getValue());
-        }
     }
 }

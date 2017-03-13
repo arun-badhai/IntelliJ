@@ -16,7 +16,7 @@ public class ReadInput {
         if(lines == null){
             lines = new ArrayList<>();
             try {
-                lines = Files.readAllLines(Paths.get("./resources/input.txt"));
+                lines = Files.readAllLines(Paths.get("./resources/testGraph.txt"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
