@@ -6,25 +6,21 @@ import java.util.Scanner;
 /**
  * Created by Shivani Shinde on 11-03-2017.
  */
-public class Graph {
+class GraphCreation {
     static int v;
-    static List<Integer>  vertex = new ArrayList<Integer>();
-    static List<HashMap> mainList = new ArrayList<>();
-    static List<HashMap> edges = new ArrayList<>();
-    static HashMap<Integer, Integer> edge;
-    static HashMap<Integer, List> mainMap = new HashMap<>();
+    static List<Integer>  vertex = new ArrayList<Integer>(); // List of vertices
+    static List<HashMap> unsort = new ArrayList<>(); // List will be used in Prims to get the edges in sorted order
+    static HashMap<Integer,HashMap> unsorted; // HashMap used to store edges with their weights
+    static List<HashMap> edges = new ArrayList<>(); // HashMap used to store just the edges
+    static HashMap<Integer, Integer> edge; // Temporary edge, to check for duplication
 
     public static void addVertex(int key){
         vertex.add(key);
     }
 
-    public static void addEdgesToGraph(int start, List<HashMap> list){
-        mainMap.put(start, list);
-        mainList.add(mainMap);
-    }
     public static void main (String[] args) throws java.lang.Exception
     {
-        Graph graph = new Graph();
+        GraphCreation graph = new GraphCreation();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of vertices");
         v = sc.nextInt();
@@ -44,7 +40,7 @@ public class Graph {
             int e = sc.nextInt();
             System.out.println("Enter all the ending vertices with edge weights");
             List<HashMap> list = new ArrayList<>();
-            HashMap<Integer, Integer> inner = new HashMap<>();
+            HashMap<Integer, Integer> innerMap = new HashMap<>();
             for(int i=0;i<e;i++){
                 int end = sc.nextInt();
                 int weight = sc.nextInt();
@@ -53,9 +49,10 @@ public class Graph {
                         edge = new HashMap<>();
                         edge.put(vertex.get(j), end);
                         if(!edges.contains(edge)){
+                            unsorted = new HashMap<>();
+                            unsorted.put(weight, edge);
+                            unsort.add(unsorted);
                             edges.add(edge);
-                            inner.put(end, weight);
-                            list.add(inner);
                         }
                         else{
                             System.out.println("Edge already exists in the graph");
@@ -72,7 +69,6 @@ public class Graph {
                     i--;
                 }
             }
-            addEdgesToGraph(vertex.get(j), list);
         }
         System.out.println("Graph created");
     }
