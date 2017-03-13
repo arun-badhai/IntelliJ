@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Created by Shivani Shinde on 13-03-2017.
  */
-public class Prims {
+public class Kruskals {
     static List vertex = Vertex.addVertex();
     static HashMap finalEdges = new HashMap();
     static List<Integer> finalVertex = new ArrayList();

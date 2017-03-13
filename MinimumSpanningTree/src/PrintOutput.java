@@ -10,7 +10,7 @@ public class PrintOutput {
 
     // Writes the output to a file
     public static void main (String[] args) throws java.lang.Exception {
-        finalEdges = Prims.MST(sorted);
+        finalEdges = Kruskals.MST(sorted);
         StringBuilder sbfinal = new StringBuilder();
         Set set = finalEdges.entrySet();
         Iterator iterator = set.iterator();
