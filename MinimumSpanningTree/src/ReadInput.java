@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,8 +9,22 @@ import java.util.List;
  */
 
 public class ReadInput {
-    static List<String> lines;
+
+    public static List<String> lines;
+
+    public static List getLines(){
+        if(lines == null){
+            lines = new ArrayList<>();
+            try {
+                lines = Files.readAllLines(Paths.get("./resources/input.txt"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return lines;
+    }
+
     public static void main (String[] args) throws java.lang.Exception {
-        lines = Files.readAllLines(Paths.get("./resources/input.txt"));
+
     }
 }
