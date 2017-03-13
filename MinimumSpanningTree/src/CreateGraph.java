@@ -33,7 +33,7 @@ public class CreateGraph {
         }
     }
 
-    // Sorting the edges by weights
+    // Sorts the edges by weights
     public static HashMap sortMap(){
         for(int i=0;i<read.size();i++){
             trim(read.get(i));

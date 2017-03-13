@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class SortedMap {
 
-    // Sorting the edges by weights
+    // Sorts the edges by weights
     public static HashMap sort(HashMap edgesWithWeights) {
         List sortedList = new ArrayList(edgesWithWeights.entrySet());
         Collections.sort(sortedList, new Comparator() {

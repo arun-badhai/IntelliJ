@@ -7,8 +7,9 @@ import java.util.*;
 public class PrintOutput {
     static HashMap sorted = CreateGraph.sortMap();
     static HashMap finalEdges;
-    public static void main (String[] args) throws java.lang.Exception {
 
+    // Writes the output to a file
+    public static void main (String[] args) throws java.lang.Exception {
         finalEdges = Prims.MST(sorted);
         StringBuilder sbfinal = new StringBuilder();
         Set set = finalEdges.entrySet();

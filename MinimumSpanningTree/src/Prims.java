@@ -9,7 +9,7 @@ public class Prims {
     static List<Integer> finalVertex = new ArrayList();
     static int totalweight = 0;
 
-    // Creating a MST
+    // Creates a MST
     public static HashMap MST(HashMap sorted){
         Set set = sorted.entrySet();
         Iterator iterator = set.iterator();
