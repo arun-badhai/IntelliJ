@@ -27,6 +27,6 @@ public class Vertex {
         return vertex;
     }
 
-    public static void main (String[] args) throws java.lang.Exception {
+    public static void main (String[] args) throws Exception {
     }
 }

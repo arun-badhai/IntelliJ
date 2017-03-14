@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Created by Shivani Shinde on 13-03-2017.
  */
-public class PrintOutput {
+public class KruskalsOutput {
     static HashMap sorted = CreateGraph.sortMap();
     static HashMap finalEdges;
 
@@ -25,7 +25,7 @@ public class PrintOutput {
             sbfinal.append("\n");
         }
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("Output.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter("KruskalsOutput.txt"));
             out.write(sbfinal.toString());
             out.close();
         }

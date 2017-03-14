@@ -9,19 +9,34 @@ public class SortForPrims {
     static List<List<Integer>> edgesTemp = new ArrayList<>();
 
     public static void trim(String line){
-        String value = line.replaceAll("[^0-9]","");
-        int start = Character.getNumericValue(line.charAt(0));
+        List<Integer> list = new ArrayList();
+        int i = 0;
+        String start = "";
+        while(Character.isDigit(line.charAt(i))){
+            start = start + line.charAt(i);
+            i++;
+        }
+        int begin = Integer.parseInt(start);
+        while(i<line.length()) {
+            String digits= "";
+            while(Character.isDigit(line.charAt(i))) {
+                digits = digits + line.charAt(i);
+                i++;
+            }
+            if(digits != ""){
+                list.add(Integer.parseInt(digits));
+            }
+            i++;
+        }
         List innerList = new ArrayList();
-        for(int i=1;i<value.length();i=i+2){
-            int end = Character.getNumericValue(value.charAt(i));
-            int weight = Character.getNumericValue(value.charAt(i+1));
+        for(int j=0;j<list.size();j=j+2){
+            int end = list.get(j);
+            int weight = list.get(j+1);
             List<Integer> edge = new ArrayList<>(); // To check if edge exists
-            List<Integer> edgereverse = new ArrayList<>(); // To check if edge exists (reverse order)
             List<Integer> innermostList = new ArrayList<>();
-            edge.add(start);
+            edge.add(begin);
             edge.add(end);
-            edgereverse.add(end); edgereverse.add(start);
-            if(!edgesTemp.contains(edge) && !edgesTemp.contains(edgereverse)){
+            if(!edgesTemp.contains(edge)){
                 edgesTemp.add(edge);
                 innermostList.add(end);
                 innermostList.add(weight);
@@ -46,12 +61,12 @@ public class SortForPrims {
     }
 
     public static void main (String[] args) throws java.lang.Exception {
-        sortForPrims();
+        /*sortForPrims();
         Set set = HMAp.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()){
             Map.Entry mapVal = (Map.Entry)iterator.next();
             System.out.println("Key "+mapVal.getKey()+"    Value  "+mapVal.getValue());
-        }
+        }*/
     }
 }

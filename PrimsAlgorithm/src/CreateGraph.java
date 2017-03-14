@@ -12,11 +12,9 @@ public class CreateGraph {
     // Adds edges to the lists
     public static void addEdge(int start, int end, int weight){
         List<Integer> edge = new ArrayList<>();
-        List<Integer> edgereverse = new ArrayList<>();
         edge.add(start);
         edge.add(end);
-        edgereverse.add(end); edgereverse.add(start);
-        if(!edges.contains(edge) && !edges.contains(edgereverse)){
+        if(!edges.contains(edge)){
             edges.add(edge);
             edgesWithWeights.put(edge, weight);
         }
@@ -54,12 +52,17 @@ public class CreateGraph {
         for(int i=0;i<read.size();i++){
             trim(read.get(i));
         }
-        System.out.println("Original graph has been created!!");
-        sortedMap= new LinkedHashMap();
-        sortedMap = SortedMap.sort(edgesWithWeights);
-        return sortedMap;
+        System.out.println("Graph has been created!!");
+        return edgesWithWeights;
     }
 
-    public static void main (String[] args) throws java.lang.Exception {
+    public static void main (String[] args) throws Exception {
+        edgesWithWeights = sortMap();
+        Set set = edgesWithWeights.entrySet();
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry mapVal = (Map.Entry) iterator.next();
+            System.out.println("Edge in MST: " + mapVal.getKey() + " with weight: " + mapVal.getValue());
+        }
     }
 }
