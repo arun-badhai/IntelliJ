@@ -1,5 +1,0 @@
-Edge in MST: [4, 3] with weight: 2
-Edge in MST: [1, 2] with weight: 5
-Edge in MST: [3, 5] with weight: 2
-Edge in MST: [0, 4] with weight: 2
-Edge in MST: [3, 1] with weight: 1
