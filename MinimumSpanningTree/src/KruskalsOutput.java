@@ -5,12 +5,11 @@ import java.util.*;
  * Created by Shivani Shinde on 13-03-2017.
  */
 public class KruskalsOutput {
-    static HashMap sorted = CreateGraph.sortMap();
     static HashMap finalEdges;
 
     // Writes the output to a file
     public static void main (String[] args) throws java.lang.Exception {
-        finalEdges = Kruskals.MST(sorted);
+        finalEdges = Kruskals.MST();
         StringBuilder sbfinal = new StringBuilder();
         Set set = finalEdges.entrySet();
         Iterator iterator = set.iterator();
