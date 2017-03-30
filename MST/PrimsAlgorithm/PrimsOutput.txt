@@ -1,0 +1,15 @@
+Edge in MST: [4, 3] with weight: 3
+Edge in MST: [0, 1] with weight: 2
+Edge in MST: [0, 2] with weight: 1
+Edge in MST: [2, 4] with weight: 3
+Edge in MST: [6, 8] with weight: 2
+Edge in MST: [9, 12] with weight: 1
+Edge in MST: [2, 6] with weight: 1
+Edge in MST: [4, 10] with weight: 5
+Edge in MST: [8, 14] with weight: 3
+Edge in MST: [4, 11] with weight: 2
+Edge in MST: [0, 9] with weight: 4
+Edge in MST: [1, 13] with weight: 4
+Edge in MST: [11, 5] with weight: 1
+Edge in MST: [11, 7] with weight: 1
+Total weight of the MST is: 33
