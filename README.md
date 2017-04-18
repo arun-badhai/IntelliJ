@@ -28,6 +28,7 @@ This includes two types of heaps:
 
 2. Max Heaps - Value of each node is greater than or equal to the value of the node's children
 
+
 Folder 4: Minimum Spanning Tree (MST)
 
 This includes three algorithms:
