@@ -2,14 +2,13 @@
 
 Folder 1: Searching Techniques
 
-This includes the two searching techniques:
+  This includes the two searching techniques:
 
-1. Linear Search with complexity O(n)
+  1. Linear Search with complexity O(n)
 
-2. Binary Search with complexity O(logn)
+  2. Binary Search with complexity O(logn)
 
-Functionality: Insert, Search and Delete
-
+  Functionality: Insert, Search and Delete
 
 Folder 2: Tree Traversal
 
