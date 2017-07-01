@@ -13,28 +13,30 @@ Functionality: Insert, Search and Delete
 
 Folder 2: Tree Traversal
 
-This includes the two tree traversing techniques:
+  This includes the two tree traversing techniques:
 
-1. Depth First Search 
+  1. Depth First Search 
 
-2. Breadth First Search
-
+  2. Breadth First Search
 
 Folder 3 : Heaps
 
-This includes two types of heaps:
+  This includes two types of heaps:
 
-1. Min Heaps - Value of each node is less than or equal to the value of the node's children
+  1. Min Heaps - Value of each node is less than or equal to the value of the node's children
 
-2. Max Heaps - Value of each node is greater than or equal to the value of the node's children
-
+  2. Max Heaps - Value of each node is greater than or equal to the value of the node's children
 
 Folder 4: Minimum Spanning Tree (MST)
 
-This includes three algorithms:
+  This includes three algorithms:
 
-1. Kruskal's Algorithm
+  1. Kruskal's Algorithm
 
-2. Prim's Algorithm
+  2. Prim's Algorithm
 
-3. Boruvka's Algorithm
+  3. Boruvka's Algorithm
+
+Folder 5: Searching Techniques
+
+Folder 6: Tree Traversal
